@@ -28,11 +28,13 @@ void Contact::setFirstName() {
 	std::string	str;
 
 	std::cout << "First name : ";
-	std::getline(std::cin, str);
+	if (!std::getline(std::cin, str))
+		exit(0);
 	while (str.size() <= 0)
 	{
-		std::cout << "Enter data";
-		std::getline(std::cin, str);
+		std::cout << "Please enter first name : ";
+		if (!std::getline(std::cin, str))
+			exit(0);
 	}
 	_first_name = str;
 }
@@ -41,11 +43,13 @@ void Contact::setLastName() {
 	std::string	str;
 
 	std::cout << "Last name : ";
-	std::getline(std::cin, str);
+	if (!std::getline(std::cin, str))
+		exit(0);
 	while (str.size() <= 0)
 	{
-		std::cout << "Enter data";
-		std::getline(std::cin, str);
+		std::cout << "Please enter last name : ";
+		if (!std::getline(std::cin, str))
+			exit(0);
 	}
 	_last_name = str;
 }
@@ -54,11 +58,13 @@ void Contact::setNickname() {
 	std::string	str;
 
 	std::cout << "Nickname : ";
-	std::getline(std::cin, str);
+	if (!std::getline(std::cin, str))
+		exit(0);
 	while (str.size() <= 0)
 	{
-		std::cout << "Enter data";
-		std::getline(std::cin, str);
+		std::cout << "Please enter nickname : ";
+		if (!std::getline(std::cin, str))
+			exit(0);
 	}
 	_nickname = str;
 }
@@ -67,11 +73,13 @@ void Contact::setPhoneNumber() {
 	std::string	str;
 
 	std::cout << "Phone number : ";
-	std::getline(std::cin, str);
+	if (!std::getline(std::cin, str))
+		exit(0);
 	while (str.size() <= 0)
 	{
-		std::cout << "Enter data";
-		std::getline(std::cin, str);
+		std::cout << "Please enter phone number : ";
+		if (!std::getline(std::cin, str))
+			exit(0);
 	}
 	_phone_number = str;
 }
@@ -80,11 +88,13 @@ void Contact::setDarkestSecret() {
 	std::string	str;
 
 	std::cout << "Darkest secret : ";
-	std::getline(std::cin, str);
+	if (!std::getline(std::cin, str))
+		exit(0);
 	while (str.size() <= 0)
 	{
-		std::cout << "Enter data";
-		std::getline(std::cin, str);
+		std::cout << "What about darkest secret? You should write about that : ";
+		if (!std::getline(std::cin, str))
+			exit(0);
 	}
 	_darkest_secret = str;
 }
