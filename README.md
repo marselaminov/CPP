@@ -1,3 +1,3 @@
 # CPP
 
-C++ learning
+Learning C++
