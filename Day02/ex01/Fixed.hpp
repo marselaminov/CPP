@@ -23,6 +23,6 @@ private:
     static const int	bits = 8;
 };
 
-std::ostream & operator<<(std::ostream & out, Fixed const & src);
+std::ostream&	operator<<(std::ostream &out, const Fixed &src);
 
 #endif
