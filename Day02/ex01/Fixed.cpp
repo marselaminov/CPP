@@ -15,7 +15,7 @@ Fixed::Fixed(const int src) {
 }
 
 Fixed::Fixed(const float src) {
-    std::cout << "Float constructor called" << std::endl;
+    std::cout << "Float construvvvctor called" << std::endl;
     this->fixed_p = roundf(src * (1 << this->bits));
 }
 

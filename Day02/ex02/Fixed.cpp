@@ -46,7 +46,7 @@ bool 	Fixed::operator<=(const Fixed &src) const {
 }
 
 bool 	Fixed::operator==(const Fixed &src) const {
-	return (this->fixed_p < src.getRawBits());
+	return (this->fixed_p == src.getRawBits());
 }
 
 bool 	Fixed::operator!=(const Fixed &src) const {
