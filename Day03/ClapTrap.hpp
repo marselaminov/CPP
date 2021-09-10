@@ -13,6 +13,7 @@ public:
 	~ClapTrap();
 
 	std::string	get_name() const;
+	unsigned int get_attack_damage() const;
 	void	set_name(std::string const &src_name);
 
 	void attack(std::string const & target);
@@ -21,10 +22,10 @@ public:
 	void info() const;
 
 private:
-	std::string	name;
-	int	hit_points;
-	int	energy_points;
-	int	attack_damage;
+	std::string		name;
+	unsigned int	hit_points;
+	unsigned int	energy_points;
+	unsigned int	attack_damage;
 };
 
 #endif

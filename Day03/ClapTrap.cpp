@@ -32,12 +32,51 @@ std::string	ClapTrap::get_name() const {
 	return (this->name);
 }
 
+unsigned int ClapTrap::get_attack_damage() const {
+	return (this->attack_damage);
+}
+
 void	ClapTrap::set_name(const std::string &src_name) {
 	this->name = src_name;
 }
 
 void	ClapTrap::attack(const std::string &target) {
-	std::cout << "ClapTrap [" << this->name << "] attack" << target << ",";
+	std::cout << "ClapTrap [" << this->name << "] attack " << target << ", ";
 	std::cout << "causing " << this->attack_damage << " points of damage!" << std::endl;
 }
 
+void	ClapTrap::takeDamage(unsigned int amount) {
+	std::cout << "ClapTrap [" << this->name << "] has taken " << amount;
+	std::cout << " points of damage." << std::endl;
+	if (amount >= energy_points) {
+		this->energy_points = 0;
+		std::cout << "ClapTrap [" << this->name << "] is died" << std::endl;
+	}
+	else {
+		this->energy_points -= amount;
+		std::cout << "ClapTrap [" << this->name << "] has " << energy_points;
+		std::cout << " energy points in current time." << std::endl;
+	}
+}
+
+void	ClapTrap::beRepaired(unsigned int amount) {
+	if (energy_points == 0) {
+		this->energy_points = amount;
+		std::cout << "ClapTrap [" << this->name << "] has been repaired and back to life, ";
+		std::cout << "now he has " << amount << " energy points." << std::endl;
+	}
+	else {
+		this->energy_points += amount;
+		std::cout << "ClapTrap [" << this->name << "] has been repaired, ";
+		std::cout << "he is take " << amount << " energy points, ";
+		std::cout << "and now he has " << this->energy_points << " energy points." << std::endl;
+	}
+}
+
+void	ClapTrap::info() const {
+	std::cout << "INFO ABOUT CLABTRAP :" << std::endl;
+	std::cout << "Name : " << this->name << std::endl;
+	std::cout << "Hit points : " << this->hit_points << std::endl;
+	std::cout << "Energy points : " << this->energy_points << std::endl;
+	std::cout << "Attack damage : " << this->attack_damage << std::endl;
+}
