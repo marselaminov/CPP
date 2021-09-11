@@ -17,6 +17,8 @@ ClapTrap::ClapTrap(const ClapTrap &src) {
 
 ClapTrap & ClapTrap::operator=(const ClapTrap &src) {
 	std::cout << "Assignation operator called" << std::endl;
+	if (this == &src)
+        return (this*);
 	this->name = src.get_name();
 	this->hit_points = src.hit_points;
 	this->energy_points = src.energy_points;
