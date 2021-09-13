@@ -12,14 +12,14 @@ public:
 	ClapTrap & operator=(ClapTrap const &src);
 	~ClapTrap();
 
-	std::string	get_name() const;
-	unsigned int get_attack_damage() const;
-	void	set_name(std::string const &src_name);
+	std::string	getName() const;
+	unsigned int getAttackDamage() const;
+	void	setName(std::string const &src_name);
 
-	void attack(std::string const & target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
-	void info() const;
+	void	attack(std::string const & target);
+	void	takeDamage(unsigned int amount);
+	void	beRepaired(unsigned int amount);
+	void	info() const;
 
 private:
 	std::string		name;

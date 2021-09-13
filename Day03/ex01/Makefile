@@ -1,6 +1,7 @@
-NAME 		=	clabtrap
+NAME 		=	scavtrap
 
-SRC			=   ClapTrap.cpp \
+SRC			=   ScavTrap.cpp \
+                ClapTrap.cpp \
 				main.cpp
 
 OBJ			=	$(SRC:.cpp=.o)

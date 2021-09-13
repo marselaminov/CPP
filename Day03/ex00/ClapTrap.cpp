@@ -18,8 +18,8 @@ ClapTrap::ClapTrap(const ClapTrap &src) {
 ClapTrap & ClapTrap::operator=(const ClapTrap &src) {
 	std::cout << "Assignation operator called" << std::endl;
 	if (this == &src)
-        return (this*);
-	this->name = src.get_name();
+        return (*this);
+	this->name = src.getName();
 	this->hit_points = src.hit_points;
 	this->energy_points = src.energy_points;
 	this->attack_damage = src.attack_damage;
@@ -30,15 +30,15 @@ ClapTrap::~ClapTrap() {
 	std::cout << "Destructor called" << std::endl;
 }
 
-std::string	ClapTrap::get_name() const {
+std::string	ClapTrap::getName() const {
 	return (this->name);
 }
 
-unsigned int ClapTrap::get_attack_damage() const {
+unsigned int ClapTrap::getAttackDamage() const {
 	return (this->attack_damage);
 }
 
-void	ClapTrap::set_name(const std::string &src_name) {
+void	ClapTrap::setName(const std::string &src_name) {
 	this->name = src_name;
 }
 

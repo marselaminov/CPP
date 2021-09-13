@@ -6,9 +6,9 @@ int main() {
 	ClapTrap	third;
 	std::cout << "-----------------------------------" << std::endl;
 	first.attack("Elena");
-	second.takeDamage(first.get_attack_damage());
+	second.takeDamage(first.getAttackDamage());
 	third.attack("Andrey");
-	first.takeDamage(third.get_attack_damage());
+	first.takeDamage(third.getAttackDamage());
 	std::cout << "-----------------------------------" << std::endl;
 	third = second;
 	std::cout << "-----------------------------------" << std::endl;

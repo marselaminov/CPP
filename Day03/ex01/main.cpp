@@ -1,22 +1,34 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main() {
-	ClapTrap	first("Andrey");
-	ClapTrap	second("Elena");
-	ClapTrap	third;
+	ScavTrap	first("Jon");
+	ScavTrap	second("Sam");
+	ScavTrap	third;
+
 	std::cout << "-----------------------------------" << std::endl;
-	first.attack("Elena");
-	second.takeDamage(first.get_attack_damage());
-	third.attack("Andrey");
-	first.takeDamage(third.get_attack_damage());
+	first.attack("Sam");
+	second.takeDamage(first.getAttackDamage());
+	std::cout << "..." << std::endl;
+	third.attack("Jon");
+	first.guardGate();
+	first.takeDamage(third.getAttackDamage());
 	std::cout << "-----------------------------------" << std::endl;
+
 	third = second;
+
 	std::cout << "-----------------------------------" << std::endl;
-	third.beRepaired(24);
+
+	third.beRepaired(22);
+
 	std::cout << "-----------------------------------" << std::endl;
+
 	third.info();
+
 	std::cout << "-----------------------------------" << std::endl;
-	second.info();
+
+	first.info();
+
 	std::cout << "-----------------------------------" << std::endl;
+
 	return (0);
 }
