@@ -1,10 +1,6 @@
-NAME 		=	polymorphism
+NAME 		=	bureaucrat
 
-SRC			=   Animal.cpp \
-                WrongAnimal.cpp \
-                WrongCat.cpp \
-                Cat.cpp \
-                Dog.cpp \
+SRC			=   Bureaucrat.cpp \
 				main.cpp
 
 %.obj:			%.cpp

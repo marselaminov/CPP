@@ -1,17 +1,12 @@
-NAME 		=	polymorphism
+NAME 		=	abstractclass
 
 SRC			=   Animal.cpp \
-                WrongAnimal.cpp \
-                WrongCat.cpp \
+                Brain.cpp \
                 Cat.cpp \
                 Dog.cpp \
 				main.cpp
 
-%.obj:			%.cpp
-				$(CC) $(CFLAGS) -c $< -o $@
-
 OBJ			=	$(SRC:.cpp=.o)
-
 
 CC			=	clang++
 
@@ -21,10 +16,8 @@ RM			=	rm -rf
 
 all:			$(NAME)
 
-
 $(NAME):		$(OBJ)
 				$(CC) $(FLAGS) $(SRC) -o $(NAME)
-
 
 clean:
 				$(RM) $(OBJ)
