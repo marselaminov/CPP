@@ -40,6 +40,10 @@ const char* Form::GradeTooLowException::what() const throw() {
 	return (RED"Creating this form is fatal : grade too low!"RESET);
 }
 
+const char* Form::FormNotSignedException::what() const throw() {
+	return (RED"Creating this form is fatal : form has not been signed!"RESET);
+}
+
 std::string	Form::getName() const {return (this->name);}
 
 int	Form::getGrade2Signed() const {return (this->grade2sign);}

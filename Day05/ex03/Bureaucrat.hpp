@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
 #define RED     "\x1b[31m"
 #define GREEN   "\x1b[32m"
 #define YELLOW  "\x1b[33m"
@@ -10,6 +11,8 @@
 #define MAGENTA "\x1b[35m"
 #define CYAN    "\x1b[36m"
 #define RESET   "\x1b[0m"
+
+class Form;
 
 class Bureaucrat {
 public:
@@ -32,6 +35,8 @@ public:
 	int	getGrade() const;
 	void	incrementGrade();
 	void 	decrementGrade();
+	void 	signForm(Form &form);
+	void	executeForm(Form const &form);
 
 private:
 	const std::string	name;

@@ -11,7 +11,7 @@ public:
 	Form(std::string name, int grade2sign, int grade2exec);
 	Form(Form const &src);
 	Form & operator=(Form const &src);
-	~Form();
+	virtual ~Form();
 
 	class GradeTooHighException : public std::exception {
 	public:
