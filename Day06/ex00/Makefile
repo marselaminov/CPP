@@ -1,6 +1,6 @@
-NAME 		=	bureaucrat
+NAME 		=	convert
 
-SRC			=   Bureaucrat.cpp \
+SRC			=   Convert.cpp \
 				main.cpp
 
 OBJ			=	$(SRC:.cpp=.o)
