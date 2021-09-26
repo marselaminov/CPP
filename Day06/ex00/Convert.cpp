@@ -2,77 +2,86 @@
 
 Convert::Convert() {}
 
-Convert::Convert(std::string num) : num(num) {}
+Convert::Convert(std::string arg) : arg(arg) {}
 
 Convert::Convert(const Convert &src) {
 	if (this != &src)
-		this->num = src.num;
+		this->arg = src.arg;
 }
 
 Convert& Convert::operator=(const Convert &src) {
 	if (this != &src)
-		this->num = src.num;
+		this->arg = src.arg;
 	return (*this);
 }
 
 Convert::~Convert() {}
 
 void	Convert::toChar() {
-	int	c;
-
-	try {
-		c = stoi(this->num, 0, 10);
-	}
-	catch (const std::exception &e) {
-		std::cerr << "char: impossible" << std::endl;
+	if (this->arg.length() == 1 && (std::isprint(this->arg[0]) && !std::isdigit(this->arg[0]))) {
+		std::cout << "char: '" << static_cast<unsigned char>(this->arg[0]) << "'" << std::endl;
 		return;
 	}
-	if (c < 32 || c >= 127) {
-		std::cerr << "char: Non displayable" << std::endl;
-	}
-	else
-		std::cout << "char: '" << static_cast<char>(c) << "'" << std::endl;
-}
+	//----------------------------------------------------------------------------------
+	long	l = atol(this->arg.c_str());
 
-void	Convert::toInt() {
-	int	i;
-
-	try {
-		i = stoi(this->num, 0, 10);
-	}
-	catch (const std::exception &e) {
+	if (l < -2147483648 || l > 2147483647 || (!l && this->arg.compare("0"))) {
 		std::cerr << "int: impossible" << std::endl;
 		return;
 	}
-	std::cout << "int: " << static_cast<int>(i) << std::endl;
+	//----------------------------------------------------------------------------------
+	int	i = static_cast<int>(l);
+
+	if (i > -1 && i < 256 && (i < 32 || i > 127)) {
+		std::cerr << "char: Non displayable" << std::endl;
+		return;
+	}
+	//----------------------------------------------------------------------------------
+	if ((this->arg.length() > 1 && !i) || i > 255 || i < 0) {
+		std::cerr << "char: impossible" << std::endl;
+		return;
+	}
+	//----------------------------------------------------------------------------------
+	std::cout << "char: '" << static_cast<unsigned char>(i) << "'" << std::endl;
+}
+
+void	Convert::toInt() {
+	long	l = atol(this->arg.c_str());
+
+	if (l < -2147483648 || l > 2147483647 || (!l && this->arg.compare("0"))) {
+		std::cerr << "int: impossible" << std::endl;
+		return;
+	}
+	std::cout << "int: " << static_cast<int>(l) << std::endl;
+}
+
+bool	isNanf(std::string const arg) {
+	return (arg.compare(0, 4, "-inf") + arg.compare(0, 4, "+inf") +
+			arg.compare(0, 3, "inf") + arg.compare(0, 3, "nan"));
 }
 
 void	Convert::toFloat() {
-	float	f;
+	float	f = static_cast<float>(atof(this->arg.c_str()));
 
-	try {
-		f = stof(this->num, 0);
-	}
-	catch (const std::exception &e) {
-		std::cerr << "float: nanf" << std::endl;
+	if (((std::isnan(f) || std::isinf(f)) && !isNanf(this->arg)) ||
+			(f == 0.000000 && this->arg.length() > 1)) {
+		std::cerr << "float: impossible" << std::endl;
 		return;
 	}
 	std::cout << "float: " << std::fixed; // opportunity to set precision after dot
 	std::cout << std::setprecision(1); // set precision to 1
-	std::cout << static_cast<float >(f) << "f" << std::endl;
+	std::cout << f << "f" << std::endl;
 }
 
 void	Convert::toDouble() {
-	float	d;
+	double	d = static_cast<double>(atof(this->arg.c_str()));
 
-	try {
-		d = stod(this->num, 0);
-	}
-	catch (const std::exception &e) {
-		std::cerr << "double: nan" << std::endl;
+	if (((std::isnan(d) || std::isinf(d)) && !isNanf(this->arg)) ||
+		(d == 0.000000 && this->arg.length() > 1)) {
+		std::cerr << "double: impossible" << std::endl;
 		return;
 	}
 	std::cout << "double: " << std::fixed; // opportunity to set precision after dot
 	std::cout << std::setprecision(1); // set precision to 1
-	std::cout << static_cast<double >(d) << std::endl;
+	std::cout << d << std::endl;
 }

@@ -5,18 +5,16 @@
 #include <iomanip>
 #include <string>
 #include <exception>
+#include <cmath>
+#include <cfloat>
 #define RED     "\x1b[31m"
 #define GREEN   "\x1b[32m"
-#define YELLOW  "\x1b[33m"
-#define BLUE    "\x1b[34m"
-#define MAGENTA "\x1b[35m"
-#define CYAN    "\x1b[36m"
 #define RESET   "\x1b[0m"
 
 class Convert {
 public:
 	Convert();
-	Convert(std::string num);
+	Convert(std::string arg);
 	Convert(Convert const &src);
 	Convert& operator=(Convert const &src);
 	~Convert();
@@ -27,7 +25,7 @@ public:
 	void	toDouble();
 
 private:
-	std::string	num;
+	std::string	arg;
 };
 
 #endif
