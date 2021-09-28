@@ -45,7 +45,7 @@ public:
 	};
 
 	T & operator[](unsigned int index) const {
-		if (index < 0 || index > this->size_n || this->size_n == 0)
+		if (index < 0 || index >= this->size_n || this->size_n == 0)
 			throw InvalidIndexException();
 		else
 			return (this->arr[index]);
