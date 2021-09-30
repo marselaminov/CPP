@@ -9,6 +9,7 @@
 #include <iostream>
 #include <exception>
 #include <vector>
+#include <set>
 
 class Span {
 public:
@@ -20,7 +21,6 @@ public:
 
 	void			addNumber(int n);
 	void			addNumber(std::vector<int>::iterator &begin, std::vector<int>::iterator &end);
-	void			addNumber(int *begin, int *end);
 	unsigned int	shortestSpan();
 	unsigned int	longestSpan();
 
