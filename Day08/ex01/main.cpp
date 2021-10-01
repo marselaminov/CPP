@@ -9,7 +9,7 @@ int main()
 		sp.addNumber(17);
 		sp.addNumber(9);
 		sp.addNumber(11);
-		sp.addNumber(55); // error, because span can content only 5 elements
+		//sp.addNumber(55); // error, because span can content only 5 elements
 	}
 	catch (const std::exception &e) {
 		std::cerr << e.what() << std::endl;
@@ -46,5 +46,6 @@ int main()
 	catch (const std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
+
 	return (0);
 }
